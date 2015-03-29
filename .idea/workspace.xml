@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80f23b91-8dfb-4fed-bd2d-00e4cbe0dee8" name="Default" comment="added some animation to the tic-tac-toe cells">
+    <list default="true" id="80f23b91-8dfb-4fed-bd2d-00e4cbe0dee8" name="Default" comment="enhanced animation to look likes it is flipping around">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tictactoe.html" afterPath="$PROJECT_DIR$/tictactoe.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,8 +30,8 @@
       <file leaf-file-name="tictactoe.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tictactoe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67391306" vertical-offset="1851" max-vertical-offset="2550">
-              <caret line="142" column="47" selection-start-line="142" selection-start-column="47" selection-end-line="142" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.85507244" vertical-offset="21" max-vertical-offset="2760">
+              <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -181,7 +181,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427603169448</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="enhanced animation to look likes it is flipping around">
+      <created>1427660609535</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1427660609535</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -226,7 +232,8 @@
     </option>
     <MESSAGE value="initial commit. &#10;Created a tic-tac-toe board square to hold the 0 or Xs using document and a canvas" />
     <MESSAGE value="added some animation to the tic-tac-toe cells" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some animation to the tic-tac-toe cells" />
+    <MESSAGE value="enhanced animation to look likes it is flipping around" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhanced animation to look likes it is flipping around" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -237,8 +244,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tictactoe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67391306" vertical-offset="1851" max-vertical-offset="2550">
-          <caret line="142" column="47" selection-start-line="142" selection-start-column="47" selection-end-line="142" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.85507244" vertical-offset="21" max-vertical-offset="2760">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
           <folding />
         </state>
       </provider>
