@@ -20,6 +20,7 @@
     <script>
         var canvas, ctx;
         var data;
+        var player;
 
         window.onload = function main() {
             canvas = document.createElement("canvas");
@@ -27,6 +28,8 @@
             ctx = canvas.getContext("2d");
 
             document.body.appendChild(canvas);
+
+            canvas.addEventListener("mousedown", mouseDown)
 
             init();
             tick();
@@ -43,9 +46,7 @@
                     data.push(new Tile(x, y));
                 }
             }
-
-            data[0].flip(Tile.NOUGHT);
-
+            player = Tile.NOUGHT;
         }
 
         function tick() {
@@ -68,6 +69,24 @@
                 data[i].draw(ctx);
             }
 
+        }
+
+        function mouseDown(evt) {
+            var el = evt.target;
+
+            var px = evt.clientX - el.offsetLeft;
+            var py = evt.clientY - el.offsetTop;
+
+            if (px % 120 >= 20 && py % 120 >= 20) {
+                var idx = Math.floor(px / 120);
+                idx += Math.floor(py / 120) * 3;
+                if (data[idx].hasData()) {
+                    return;
+                }
+                data[idx].flip(player);
+                player = player === Tile.NOUGHT ? Tile.CROSS : Tile.NOUGHT;
+
+            }
         }
 
         function Tile(x, y) {
@@ -126,6 +145,10 @@
 
                 tile = Tile.BLANK;
 
+            }
+
+            this.hasData = function () {
+                return tile !== Tile.BLANK;
             }
 
             this.flip = function (next) {
