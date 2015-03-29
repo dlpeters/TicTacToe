@@ -134,12 +134,20 @@
                 // resolution width
                 var res = 2;
                 var t = anim > 0.5 ? Tile.BLANK : tile;
-                // shrinks right to left
+                // shrinks left to right
                 var p = -Math.abs(2 * anim - 1) + 1;
                 for (var i = 0; i < 100; i += res) {
+
+                    // algorithm thanks to Max Wihlborg
+
+                    var j = 50 - (anim > 0.5 ? 100 - i : i);
+
                     ctx.drawImage(t, i, 0, res, 100,
-                            x + i - p * i,
-                            y, res, 100
+                            // 50*p creates a page flipping effect
+                            x + i - p * i + 50 * p,
+                            y - j * p * 0.2,
+                            res,
+                            100 + i * p * 0.4
                     );
                 }
 
