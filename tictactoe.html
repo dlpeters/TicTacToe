@@ -35,6 +35,7 @@
 
         function init() {
             data = new Tile(20, 20);
+            data.flip(Tile.NOUGHT);
 
         }
 
@@ -46,10 +47,12 @@
         }
 
         function update() {
+            data.update();
 
         }
 
         function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             data.draw(ctx);
 
         }
@@ -57,6 +60,7 @@
         function Tile(x, y) {
             var x = x, y = y;
             var tile = Tile.BLANK;
+            var anim = 0;
 
             if (tile == null) {
                 // create second canvas
@@ -66,6 +70,10 @@
                 _ctx = _c.getContext("2d");
 
                 _ctx.fillStyle = "skyblue";
+                _ctx.linewidth = 4;
+                //  _ctx.strokeStyle = "white";
+                _ctx.lineCap = "round";
+
 
                 // Blank
                 _ctx.fillRect(0, 0, 100, 100);
@@ -88,13 +96,53 @@
 
                 tile = Tile.NOUGHT;
 
+
+                // Cross
+                _ctx.fillRect(0, 0, 100, 100);
+
+                // draw a circle within the tile
+                _ctx.beginPath();
+                _ctx.moveTo(20, 20);
+                _ctx.lineTo(80, 80);
+                _ctx.moveTo(80, 20);
+                _ctx.lineTo(20, 80);
+                _ctx.stroke();
+
+                Tile.CROSS = new Image();
+                Tile.CROSS.src = _c.toDataURL();
+
+                tile = Tile.BLANK;
+
+            }
+
+            this.flip = function (next) {
+                tile = next;
+                anim = 1;
             }
 
             this.update = function () {
+                if (anim > 0) {
+                    anim -= 0.02;
+                }
 
             }
             this.draw = function (ctx) {
-                ctx.drawImage(tile, x, y);
+                if (anim <= 0) {
+                    ctx.drawImage(tile, x, y);
+                    return;
+                }
+                // resolution width
+                var res = 2;
+                var t = anim > 0.5 ? Tile.BLANK : tile;
+                // shrinks right to left
+                var p = -Math.abs(2 * anim - 1) + 1;
+                for (var i = 0; i < 100; i += res) {
+                    ctx.drawImage(t, i, 0, res, 100,
+                            x + i - p * i,
+                            y, res, 100
+                    );
+                }
+
 
             }
 
